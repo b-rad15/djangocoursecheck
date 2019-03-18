@@ -1,0 +1,14 @@
+button {
+    font-family: Arial Unicode MS;
+}
+#column1 {
+    margin: 0px auto;
+    width: 50%;
+}
+#column2 {
+    margin: 0px auto;
+    width: 50%;
+}
+.error{
+    color: darkred;
+}

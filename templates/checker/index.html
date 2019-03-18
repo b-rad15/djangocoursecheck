@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Stevens Course Check</title>
+    {% load static %}
+    <script src="{% static 'checker/script.js' %}"></script>
+    <link type="text/css" rel="stylesheet" href="{% static 'checker/style.css'%}">
+
+</head>
+<body>
+    <h1>Stevens Course Checker</h1>
+    {% if error_message %}
+        <p><strong>
+            {{ error_message }}
+        </strong></p>
+    {% endif %}
+    <form action="{% url "checker:run_script"   %}">
+        Term:<input type="text" name="term" id="term"><br>
+        Course:<input type="text" name="course" id="course"><br>
+        Emails:
+        <div id="emailsDiv"></div>
+        <input type="text" name="email" id="email"> <button id="emailButton" type="button" onclick="addEmail()">&#10133;</button><br>
+        Phones:
+        <div id="phonesDiv"></div>
+        <input type="text" name="phone" id="phone"> <button id="phoneButton" type="button" onclick="addPhone()">&#10133;</button><br>
+        Sections to Avoid (Leave Blank if None):
+        <div id="avoidSecsDiv"></div>
+        <input type="text" name="avoidSec" id="avoidSec"> <button id="avoidButton" type="button" onclick="addAvoidSec()">&#10133;</button><br>
+        Sections to Pick (Leave Blank if None):
+        <div id="pickSecsDiv"></div>
+        <input type="text" name="pickSec" id="pickSec"> <button id="pickButton" type="button" onclick="addPickSec()">&#10133;</button><br>
+        <input id="submit" type="button" name="submit" Value="Submit" onClick="submitForm(this.form)">
+    </form>
+</body>
+</html>
